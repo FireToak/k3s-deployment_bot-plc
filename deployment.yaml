@@ -24,8 +24,8 @@ spec:
               name: secret-bot-plc
         resources:
           limits:
-            memory: "128Mi"
+            memory: "512Mi"
             cpu: "500m"
           requests:
-            memory: "20Mi"
+            memory: "128Mi"
             cpu: "25m"
