@@ -8,9 +8,7 @@ L'architecture met en œuvre un déploiement automatisé avec gestion du routage
 
 Le déploiement orchestre les composants suivants :
 
-* **Application :** Bot Discord (Node.js/Python)
 * **Image :** `ghcr.io/lycee-paul-louis-courier-bts-sio/discord-bot-plc:latest`
-* **Ingress Controller :** Traefik (Gestion du trafic entrant pour le Dashboard/Webhooks via `IngressRoute`)
 * **Auto-déploiement :** Keel (Polling toutes les 5 minutes pour détecter les nouvelles versions)
 
 ## 📂 Structure du dépôt
@@ -18,7 +16,6 @@ Le déploiement orchestre les composants suivants :
 * [`namespace.yaml`](namespace.yaml) : Définition du namespace `discord-bot`
 * [`secret-bot-plc.yaml.example`](secret-bot-plc.yaml.example) : Modèle de configuration des secrets (Token, API Keys)
 * [`deployment.yaml`](deployment.yaml) : Deployment et Service de l'application
-* [`ingress.yaml`](ingress.yaml) : Configuration du routage Traefik (Dashboard/Metrics)
 
 ## 🚀 Prérequis
 
@@ -63,7 +60,7 @@ Le déploiement orchestre les composants suivants :
 
 ### Ressources allouées
 - **Limits :** 512Mi RAM / 500m CPU
-- **Requests :** 128Mi RAM / 250m CPU
+- **Requests :** 125Mi RAM / 25m CPU
 
 ### Politique Keel
 - **Policy :** `force` (force la mise à jour)
