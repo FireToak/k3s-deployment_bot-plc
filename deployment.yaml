@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bot-plc
+  namespace: discord-bot
+  annotations:
+    keel.sh/policy: force
+    keel.sh/trigger: poll
+    keel.sh/pollSchedule: "@every 5m"
+spec:
+  selector:
+    matchLabels:
+      app: bot-plc
+  template:
+    metadata:
+      labels:
+        app: bot-plc
+    spec:
+      containers:
+      - name: bot-plc
+        image: ghcr.io/lycee-paul-louis-courier-bts-sio/discord-bot-plc:latest
+        envFrom:
+          - secretRef:
+              name: secret-bot-plc
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+          requests:
+            memory: "20Mi"
+            cpu: "25m"
